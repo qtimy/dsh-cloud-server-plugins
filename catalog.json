@@ -1,0 +1,76 @@
+{
+  "schemaVersion": 1,
+  "recoveredFrom": "DSH 0.1.0-rc.8 web profile",
+  "snapshotDate": "2026-08-20",
+  "plugins": [
+    {
+      "name": "@linxin666/dsh-web-ui-all",
+      "version": "0.1.12",
+      "state": "active",
+      "sourceType": "upstream-npm",
+      "source": "https://github.com/zhu1090093659/dsh-web-ui",
+      "license": "Apache-2.0",
+      "vendored": false
+    },
+    {
+      "name": "dsh-better-sidebar",
+      "version": "0.12.1",
+      "state": "active",
+      "sourceType": "upstream-npm",
+      "source": "https://github.com/omdsh-dev/DSH-better-sidebar",
+      "license": "MIT",
+      "vendored": false
+    },
+    {
+      "name": "dsh-plugin-marketplace",
+      "version": "1.5.4",
+      "revision": "8db98f7792a2aa5cdf750f45845a0b6109780bbe",
+      "state": "active",
+      "sourceType": "upstream-git",
+      "source": "https://github.com/bradeGithub/DSH-Plugins-Marketplace",
+      "license": "MIT",
+      "vendored": false
+    },
+    {
+      "name": "dsh-shift-router",
+      "version": "0.6.1",
+      "state": "active",
+      "sourceType": "adaptation",
+      "source": "plugins/dsh-shift-router",
+      "upstream": "https://github.com/green-dalii/pi-shift-router",
+      "license": "MIT",
+      "vendored": true
+    },
+    {
+      "name": "dsh-better-sidebar-skin-yield",
+      "version": "0.1.1",
+      "state": "active-legacy",
+      "sourceType": "compatibility-addon",
+      "source": "plugins/dsh-better-sidebar-skin-yield",
+      "upstreamInterfaces": [
+        "https://github.com/omdsh-dev/DSH-better-sidebar",
+        "https://github.com/zhu1090093659/dsh-web-ui"
+      ],
+      "license": "MIT",
+      "vendored": true
+    },
+    {
+      "name": "dsh-usage-stats",
+      "version": "0.1.0",
+      "state": "active",
+      "sourceType": "recovered-local",
+      "source": "https://github.com/qtimy/dsh-usage-stats",
+      "license": "MIT",
+      "vendored": "git-submodule"
+    },
+    {
+      "name": "dsh-agent-orchestrator",
+      "version": "0.1.0",
+      "state": "retired-unmounted",
+      "sourceType": "recovered-local",
+      "source": "https://github.com/qtimy/dsh-agent-orchestrator",
+      "license": "MIT",
+      "vendored": "git-submodule"
+    }
+  ]
+}
