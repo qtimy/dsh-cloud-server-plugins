@@ -1,5 +1,7 @@
 # DSH Cloud Server Plugins
 
+English | [简体中文](README.zh-CN.md)
+
 Reproducible plugin layer separated from the HTTPS-only
 `dsh-cloud-server-deploy` repository.
 
