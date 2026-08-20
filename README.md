@@ -2,44 +2,32 @@
 
 English | [简体中文](README.zh-CN.md)
 
-Reproducible plugin layer separated from the HTTPS-only
-`dsh-cloud-server-deploy` repository.
+A version-pinned plugin collection for the DSH cloud deployment. It keeps plugin
+code and model-routing policy separate from the HTTPS-only core deployment.
 
-This collection records every non-core plugin found in the recovered DSH RC.8
-web profile, including the retired standalone orchestrator. It distinguishes
-upstream work, adaptations, compatibility add-ons, and locally recovered code;
-being listed here is not a claim of authorship.
+## Included plugins
 
-## Contents
-
-| Plugin | Recovered state | Source and ownership |
+| Plugin | Type | Source |
 | --- | --- | --- |
-| `@linxin666/dsh-web-ui-all@0.1.12` | Active | Upstream Apache-2.0 package from [`zhu1090093659/dsh-web-ui`](https://github.com/zhu1090093659/dsh-web-ui); not copied here |
-| `dsh-better-sidebar@0.12.1` | Active | Upstream MIT package from [`omdsh-dev/DSH-better-sidebar`](https://github.com/omdsh-dev/DSH-better-sidebar); not copied here |
-| `dsh-plugin-marketplace@8db98f7` | Active | Upstream MIT Git revision from [`bradeGithub/DSH-Plugins-Marketplace`](https://github.com/bradeGithub/DSH-Plugins-Marketplace); not copied here |
-| `dsh-shift-router@0.6.1` | Active | Vendored DSH adaptation of [`green-dalii/pi-shift-router`](https://github.com/green-dalii/pi-shift-router); attribution preserved |
-| `dsh-better-sidebar-skin-yield@0.1.1` | Active, legacy | Vendored compatibility add-on based on Better Sidebar/skin integration surfaces; not presented as an independent project |
-| `dsh-usage-stats@0.1.0` | Active | Recovered local source, standalone repository; same-name public projects are disclosed in its README |
-| `dsh-agent-orchestrator@0.1.0` | Unmounted/retired | Recovered local source, standalone repository; superseded by Shift-Router integration |
+| `@linxin666/dsh-web-ui-all@0.1.12` | Upstream npm package | [`zhu1090093659/dsh-web-ui`](https://github.com/zhu1090093659/dsh-web-ui) |
+| `dsh-better-sidebar@0.12.1` | Upstream npm package | [`omdsh-dev/DSH-better-sidebar`](https://github.com/omdsh-dev/DSH-better-sidebar) |
+| `dsh-plugin-marketplace@8db98f7` | Upstream Git revision | [`bradeGithub/DSH-Plugins-Marketplace`](https://github.com/bradeGithub/DSH-Plugins-Marketplace) |
+| `dsh-shift-router@0.6.1` | DSH adaptation | Based on [`green-dalii/pi-shift-router`](https://github.com/green-dalii/pi-shift-router) |
+| `dsh-better-sidebar-skin-yield@0.1.1` | Legacy compatibility add-on | Better Sidebar and dsh-web-ui integration helper |
+| `dsh-usage-stats@0.1.0` | Standalone local-session statistics plugin | [`qtimy/dsh-usage-stats`](https://github.com/qtimy/dsh-usage-stats) |
+| `dsh-agent-orchestrator@0.1.0` | Optional standalone subagent router | [`qtimy/dsh-agent-orchestrator`](https://github.com/qtimy/dsh-agent-orchestrator) |
 
-Machine-readable details are in [`catalog.json`](catalog.json).
+The installer enables the first six entries. `dsh-agent-orchestrator` is included
+as an optional submodule but is not installed because Shift-Router already
+provides its orchestration features.
 
-## Repository structure
+## Compatibility
 
-```text
-plugins/
-  dsh-shift-router/                 # attributed adaptation, vendored
-  dsh-better-sidebar-skin-yield/    # integration add-on, vendored
-  dsh-usage-stats/                  # Git submodule to standalone repo
-  dsh-agent-orchestrator/           # Git submodule to standalone repo
-catalog.json
-install-rc8.sh
-```
+The pinned set is intended for DSH `0.1.0-rc.8`. Test newer DSH or plugin releases
+before changing the pins. Machine-readable package sources and versions are in
+[`catalog.json`](catalog.json).
 
-Third-party projects are referenced by immutable version or Git commit instead
-of being recopied. Each vendored plugin has its own license/provenance notice.
-
-## Reproduce the recovered active set
+## Install
 
 Clone with submodules and run as the DSH service account:
 
@@ -49,25 +37,26 @@ cd dsh-cloud-server-plugins
 bash install-rc8.sh web
 ```
 
-The script installs exact recovered versions and builds Shift-Router locally.
-It does not install the retired orchestrator. Review every third-party project
-before use; this collection verifies identity and reproducibility, not trust.
+The script installs exact upstream versions, builds Shift-Router locally, and
+links the local plugins from this persistent checkout. Restart DSH after the
+installer completes.
 
-For newer DSH/plugin releases, use upstream release notes and test compatibility
-instead of silently changing these pins.
+## Repository structure
 
-## Provenance policy
+```text
+plugins/
+  dsh-shift-router/
+  dsh-better-sidebar-skin-yield/
+  dsh-usage-stats/                  # Git submodule
+  dsh-agent-orchestrator/           # Git submodule, optional
+catalog.json
+install-rc8.sh
+```
 
-- Upstream packages retain their names, links, licenses, and authorship.
-- Adapted code states the upstream project prominently and preserves notices.
-- A compatibility add-on that depends on another project's UI contract remains
-  in this collection rather than receiving an "original plugin" repository.
-- Recovered plugins receive standalone repositories only when no source project
-  was identified. Missing history is disclosed; it is never invented.
-- No credentials, provider secrets, hostnames, IP addresses, certificates,
-  session data, logs, or live settings are included.
+## Attribution and licenses
 
-## License
+Upstream packages are referenced rather than copied. Vendored adaptations and
+compatibility code retain their upstream links and license notices. See each
+plugin directory or upstream repository for its license.
 
-The collection documentation and installer are MIT licensed. Every plugin keeps
-its own license; see its directory or linked upstream repository.
+The collection documentation and installer are MIT licensed.

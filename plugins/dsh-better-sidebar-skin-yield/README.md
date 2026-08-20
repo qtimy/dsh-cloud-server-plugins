@@ -11,10 +11,10 @@ independent original project. It does not copy source from either project.
 
 ## Status
 
-Legacy compatibility plugin. It was active with `dsh-better-sidebar@0.12.1` on
-the recovered RC.8 deployment. Newer Better Sidebar releases have substantially
-expanded desktop/skin positioning compatibility; test the current upstream
-release first and install this add-on only if the controls still overlap.
+Legacy compatibility plugin intended for `dsh-better-sidebar` 0.12.x on DSH
+RC.8. Newer Better Sidebar releases have substantially expanded desktop/skin
+positioning compatibility; test the current upstream release first and install
+this add-on only if the controls still overlap.
 
 The browser plugin watches for a `data-skin-chrome="titlebar"` marker and mounts
 one lifecycle-owned CSS rule using the stable `_toggleCluster` CSS-module suffix.
