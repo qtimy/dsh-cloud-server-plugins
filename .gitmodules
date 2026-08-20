@@ -1,0 +1,6 @@
+[submodule "plugins/dsh-usage-stats"]
+	path = plugins/dsh-usage-stats
+	url = https://github.com/qtimy/dsh-usage-stats.git
+[submodule "plugins/dsh-agent-orchestrator"]
+	path = plugins/dsh-agent-orchestrator
+	url = https://github.com/qtimy/dsh-agent-orchestrator.git
